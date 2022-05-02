@@ -1,4 +1,4 @@
-package com.example.ubx_vinne_admin_web
+package com.example.app
 
 import io.flutter.embedding.android.FlutterActivity
 

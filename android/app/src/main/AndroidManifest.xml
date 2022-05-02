@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ubx_vinne_admin_web">
+    package="com.example.app">
    <application
         android:label="food_delivery_app"
         android:name="${applicationName}"

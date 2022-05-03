@@ -22,7 +22,7 @@ class BaseApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           home: const WalkThroughScreen(),
           onGenerateRoute: RouteGenerator.generateRoute,
-          initialRoute: ScreenConstant.walkThroughScreen,
+          initialRoute: ScreenConstant.registrationScreen,
           builder: (context, child) {
             child = botToastBuilder(context, child);
             return child;

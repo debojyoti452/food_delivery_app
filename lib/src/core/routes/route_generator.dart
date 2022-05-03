@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ubx_vinne_admin_web/src/ui/login/registration_screen.dart';
 
 import '../../ui/walkthrough/walkthrough_screen.dart';
 
@@ -13,6 +14,12 @@ class RouteGenerator {
           settings: routeSettings,
         );
 
+      case ScreenConstant.registrationScreen:
+        return MaterialPageRoute(
+          builder: (builder) => RegistrationScreen(),
+          settings: routeSettings,
+        );
+
       default:
         return MaterialPageRoute(
           builder: (builder) => WalkThroughScreen(),
@@ -24,6 +31,7 @@ class RouteGenerator {
 
 mixin ScreenConstant {
   static const walkThroughScreen = 'walkThroughScreen';
+  static const registrationScreen = 'registrationScreen';
 }
 
 class ScreenArgs {

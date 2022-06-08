@@ -1,8 +1,7 @@
 import 'package:dart_std/dart_std.dart';
 import 'package:flutter/material.dart';
-import 'package:ubx_vinne_admin_web/side_bar.dart';
-import 'package:ubx_vinne_admin_web/src/base/main_common.dart';
 import 'package:ubx_vinne_admin_web/src/ui/home/custom_nav.dart';
+import 'package:ubx_vinne_admin_web/src/ui/home/side_bar.dart';
 import 'package:ubx_vinne_admin_web/src/utils/constants/app_colors.dart';
 
 const bottomNav = <Pair<String, IconData>>[
@@ -21,23 +20,15 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   var _showIndex = 1;
-
-  final GlobalKey<SideBarState> _sideMenuKey = GlobalKey<SideBarState>();
-
   var _isOpen = false;
+  final GlobalKey<SideBarState> _sideMenuKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return SideBar<Pair>(
       key: _sideMenuKey,
-      menuItemList: [
-        Pair('Home', Icons.home),
-        Pair('Favourites', Icons.favorite),
-        Pair('Cart', Icons.shopping_cart),
-        Pair('Me', Icons.person_sharp),
-      ],
+      menuItemList: bottomNav,
       onMenuClick: (index) {
-        logger.d(index);
         final state = _sideMenuKey.currentState;
         if (state?.isOpened ?? false) {
           state?.closeSideMenu();

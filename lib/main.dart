@@ -16,7 +16,7 @@ class BaseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      builder: (context) {
+      builder: (context, widget) {
         return MaterialApp(
           title: AppStrings.appName,
           theme: AppTheme.lightTheme,

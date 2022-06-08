@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:ubx_vinne_admin_web/src/ui/home/dashboard_screen.dart';
 
 class CustomNav extends StatefulWidget {
-  const CustomNav({Key? key, required this.onClick}) : super(key: key);
+  const CustomNav({
+    Key? key,
+    this.initialIndex = 0,
+    required this.onClick,
+  }) : super(key: key);
 
   final ValueChanged<int> onClick;
+  final int? initialIndex;
 
   @override
   State<CustomNav> createState() => _CustomNavState();
@@ -19,6 +24,7 @@ class _CustomNavState extends State<CustomNav> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    _selectedIndex = widget.initialIndex ?? 0;
     initiate();
     _checkWhetherToShowBottomNav();
     super.initState();
@@ -66,13 +72,17 @@ class _CustomNavState extends State<CustomNav> with TickerProviderStateMixin {
                       Icon(
                         e.second,
                         size: _isSelected(e.first) ? 30 : 18,
-                        color: _isSelected(e.first) ? _selectedColor : Colors.white,
+                        color: _isSelected(e.first)
+                            ? _selectedColor
+                            : Colors.white,
                       ),
                       Text(
                         e.first,
                         style: DefaultTextStyle.of(context).style.copyWith(
                               fontSize: _isSelected(e.first) ? 14 : 10,
-                              color: _isSelected(e.first) ? _selectedColor : Colors.white,
+                              color: _isSelected(e.first)
+                                  ? _selectedColor
+                                  : Colors.white,
                             ),
                       ),
                     ],
@@ -85,7 +95,8 @@ class _CustomNavState extends State<CustomNav> with TickerProviderStateMixin {
   }
 
   void initiate() {
-    _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
   }
 
   bool _isSelected(String label) {

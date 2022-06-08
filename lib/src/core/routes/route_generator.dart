@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ubx_vinne_admin_web/src/ui/home/dashboard_screen.dart';
 import 'package:ubx_vinne_admin_web/src/ui/login/registration_screen.dart';
+import 'package:ubx_vinne_admin_web/temp_canvas.dart';
 
 import '../../ui/walkthrough/walkthrough_screen.dart';
 
@@ -27,6 +28,12 @@ class RouteGenerator {
           settings: routeSettings,
         );
 
+      case ScreenConstant.tempCanvas:
+        return MaterialPageRoute(
+          builder: (builder) => TempCanvas(),
+          settings: routeSettings,
+        );
+
       default:
         return MaterialPageRoute(
           builder: (builder) => WalkThroughScreen(),
@@ -40,6 +47,7 @@ mixin ScreenConstant {
   static const walkThroughScreen = 'walkThroughScreen';
   static const registrationScreen = 'registrationScreen';
   static const dashboardScreen = 'dashboardScreen';
+  static const tempCanvas = 'canvasScreen';
 }
 
 class ScreenArgs {
